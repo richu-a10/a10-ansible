@@ -142,9 +142,9 @@ Sample Inventory file:
 <vthunder host_name/ip_address>
 
 [vthunder:vars]
-ansible_username=<username>
-ansible_password=<password>
-ansible_port=<port>
+a10_username: "{{ a10_username }}"
+a10_password: "{{ a10_password }}"
+a10_port: "{{ a10_port }}"
 ```
 
 If you want to use an Inventory file to perform respective configurations through a playbook, you don't need to specify `ansible_host`, `ansible_username`, `ansible_password` and `ansible_port` in the playbook.
@@ -181,10 +181,10 @@ For example,
   tasks:
     - name: <Description of task>
       <module_name>:
-        ansible_host: {{ ansible_host }}
-        ansible_username: {{ ansible_username }}
-        ansible_password: {{ ansible_password }}
-        ansible_port: {{ ansible_port }}
+          a10_host: "{{ a10_host }}"
+          a10_username: "{{ a10_username }}"
+          a10_password: "{{ a10_password }}"
+          a10_port: "{{ a10_port }}"
         <resource_key>: <resource_val>
         <another_resource_key>: <another_resource_val>
 ```
